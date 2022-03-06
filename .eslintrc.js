@@ -3,9 +3,10 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb'],
+  extends: ['plugin:react/recommended', 'airbnb', 'airbnb-typescript'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
+    project: './tsconfig.json',
     ecmaFeatures: {
       jsx: true,
     },
@@ -14,12 +15,22 @@ module.exports = {
   },
   plugins: ['react', 'jsx-a11y', '@typescript-eslint'],
   rules: {
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
     'linebreak-style': 'off',
     'no-alert': 'error',
     'no-console': 'error',
     'brace-style': 'error',
     'prefer-template': 'error',
-    radix: 'error',
     'react/require-default-props': 'off',
     'react/forbid-prop-types': 'off',
     'prefer-destructuring': 'off',
@@ -27,8 +38,8 @@ module.exports = {
     'react/no-unused-prop-types': 'off',
     'react/jsx-one-expression-per-line': 'off',
     'react/jsx-indent': 'off',
-    'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
     'import/prefer-default-export': 'off',
+    radix: 'error',
   },
   overrides: [
     {
@@ -45,4 +56,7 @@ module.exports = {
       },
     },
   ],
+  settings: {
+    'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
+  },
 };
