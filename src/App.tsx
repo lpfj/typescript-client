@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import './App.css';
 
-function App() {
+const App: FC = () => {
   let num1: string = 'one';
 
   num1 = 'two';
@@ -11,6 +11,6 @@ function App() {
       <header className="App-header">{num1}</header>
     </div>
   );
-}
+};
 
 export default App;
