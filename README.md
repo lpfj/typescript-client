@@ -1,46 +1,35 @@
-# Getting Started with Create React App
+# Typescript React Template w/ Linter y Precommit 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esta aplicacion de react fue creada para funcionar como base para otras aplicaciones, en las ramas de este repositorio se podran observar las distintas aplicaciones que se han creado en base a esta. 
 
-## Available Scripts
+El proposito de su creacion es reducir el tiempo requerido para configurar Typescript y que todo el codigo que se genere en base a este template sea sometido a revision de ESLint para asegurar buenas practica y que Prettier le de formato adecuado a todos los archivos que se encuentren staged previo a que se hagan commits. 
 
-In the project directory, you can run:
+Para observar las configuraciones de este repo se encuentran los archivos:
 
-### `npm start`
+-tsconfig.json
+-.eslintrc.js
+-.prettierrc
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Iniciacion
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Por las dependencias utilizadas en este repositorio recomendaria utilizar el comando:
 
-### `npm test`
+$ yarn install
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Como Yarn funciona mejor que NPM a la hora de instalar dependencias, queda a juicio del desarrollador luego si desea utilizarlo tambien para los scripts del repo.
 
-### `npm run build`
+### Scripts
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+El repo posee los scripts convencionales de react como "start", "test", "build" y "eject", a los cuales se les han agregado los siguientes:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- lint: corre ESlint por el proyecto para revisar el codigo buscando inconsistencias en normas de codigo limpio.
+- format: corre Prettier para dar formato correcto al codigo.
+- lint-staged: este script una vez ejecutado corre lint y prettier para dar formato al proyecto.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Commit
 
-### `npm run eject`
+Cuando sea deseado hacer un commit a algun fork de este repo husky ha modificado el script de git para incluir en sus ramas commits pues antes de agregar algo se correra el script lint-staged para asegurarse que todo el codigo sea presentable y consistente, de no ser asi husky no permitira que se agregue el commit la rama hasta que los errores que retorne sean arreglados.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Reglas de Typescript/ESLint
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Convencionalmente no es adecuado modificar estas, hay descripciones de los errores que presentan en la mayoria de los editores de texto modernos o en la misma web de ESLint, pero si se presenta alguna inconsistencia entre estas y prettier pueden agregarse excepciones en los archivos de configuracion, aun que es recomendable exceptuar reglas de prettier a reglas de los dos mencionados anteriormente.
