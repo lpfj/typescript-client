@@ -39,6 +39,8 @@ module.exports = {
     'react/jsx-one-expression-per-line': 'off',
     'react/jsx-indent': 'off',
     'import/prefer-default-export': 'off',
+    'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
+    'implicit-arrow-linebreak': 'off',
     radix: 'error',
   },
   overrides: [
